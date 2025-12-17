@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Launcher Script for HyperClean Leo Edition
+# Usage: ./hyperclean-leo run
+
+# Get the directory where this script is located
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+if [[ "$1" == "run" ]]; then
+    # Execute the main script
+    echo "🦁 Starting HyperClean Leo Engine..."
+    # Check if the main script is executable, if not, fix it
+    if [[ ! -x "$DIR/hyperclean.sh" ]]; then
+        chmod +x "$DIR/hyperclean.sh"
+    fi
+    "$DIR/hyperclean.sh"
+elif [[ "$1" == "install" ]]; then
+    # Bonus: Let them install it globally if they want
+    echo "🦁 Installing 'hyperclean-leo' to your system..."
+    echo "alias hyperclean-leo='$DIR/hyperclean-leo'" >> ~/.zshrc
+    echo "✅ Done! Restart your terminal. Then you can type 'hyperclean-leo run' from ANYWHERE."
+else
+    echo "❌ Usage: ./hyperclean-leo run"
+fi
