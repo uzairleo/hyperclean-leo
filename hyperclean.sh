@@ -1,13 +1,16 @@
 #!/bin/bash
 
 # ==============================================================================
-#  HYPERCLEAN v3.1 - Maximum Clean (Unguarded)
-#  Combines Anti-Freeze RAM Purge + Deep System/Container Cleaning
-#  ⚠️ AGGRESSIVE MODE: Wipes ALL app caches (No exceptions)
+#  HYPERCLEAN - LEO EDITION
+#  The Ultimate macOS Storage & RAM Optimizer
+#
+#  Authored by: Uzair Leo
+#  GitHub: https://github.com/uzairleo
 # ==============================================================================
 
 # --- CONFIGURATION ---
-VERSION="3.1"
+VERSION="LEO v1.0"
+AUTHOR="Uzair Leo"
 
 # --- COLORS & UTILS ---
 RED='\033[0;31m'
@@ -15,6 +18,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 CYAN='\033[0;36m'
+MAGENTA='\033[0;35m'
 BOLD='\033[1m'
 NC='\033[0m' # No Color
 
@@ -48,14 +52,14 @@ get_available_space() { df -k / | awk 'NR==2 {print $4}'; }
 show_header() {
     clear
     echo -e "${CYAN}"
-    echo "   __  __                      ____ _                  "
-    echo "  / / / /_  ______  ___  _____/ / /(_)__  ____  ____  "
-    echo " / /_/ / / / / __ \/ _ \/ ___/ / // / _ \/ __ \/ __ \ "
-    echo "/ __  / /_/ / /_/ /  __/ /  / /___/  __/ / / / / / / "
-    echo "/_/ /_/\__, / .___/\___/_/  /_____/_/\___/_/ /_/_/ /_/  "
-    echo "      /____/_/                                         "
+    echo "    __  __                      ________                  "
+    echo "   / / / /_  ______  ___  _____/ / ____/f____ _____       "
+    echo "  / /_/ / / / / __ \/ _ \/ ___/ / /   / / __ \/ __ \      "
+    echo " / __  / /_/ / /_/ /  __/ /  / / /___/ / /_/ / / / /      "
+    echo "/_/ /_/\__, / .___/\___/_/  /_____/_/\____/_/ /_/       "
+    echo "      /____/_/                                            "
     echo -e "${NC}"
-    echo -e "${BLUE}  v${VERSION} | RAM Purge + Total Cache Wipe${NC}"
+    echo -e "${BLUE}  ${BOLD}EDITION: ${VERSION}${NC} | ${MAGENTA}Dev: ${AUTHOR}${NC}"
     echo "========================================================"
     echo ""
 }
@@ -65,7 +69,7 @@ show_header() {
 show_header
 
 # 1. PERMISSION CHECK
-echo -e "${YELLOW}[?] Admin access is required for /var/log and RAM purge.${NC}"
+echo -e "${YELLOW}[?] Admin access is required to purge RAM & System Logs.${NC}"
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
@@ -114,7 +118,6 @@ rm -rf ~/Library/Logs/* 2>/dev/null
 echo -e "${GREEN} Done${NC}"
 
 echo -n "[-] Cleaning Private Temp Folders (/private/var/folders)..."
-# This clears system temp files. Can fix weird OS glitches.
 sudo rm -rf /private/var/folders/* 2>/dev/null & spinner
 echo -e "${GREEN} Done${NC}"
 
@@ -151,5 +154,6 @@ else
     echo -e "   📦 Storage Recovered: ${BOLD}0B${NC} (System already clean)"
 fi
 echo -e "   🚀 RAM Status:       ${BOLD}Optimized & Purged${NC}"
+echo -e "   😎 Credits:          ${MAGENTA}Uzair Leo${NC}"
 echo "========================================================"
 echo ""
