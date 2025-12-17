@@ -21,6 +21,7 @@ Since this is a private tool, clone it using SSH:
 ```bash
 git clone git@github.com:uzairleo/hyperclean-leo.git
 cd hyperclean-leo
+```
 
 ### 2. Run the Cleaner
 Once inside the folder, simply run:
@@ -29,7 +30,7 @@ Once inside the folder, simply run:
 ```
 That's it! The script will handle permissions, ask for your sudo password, and start the cleaning engine.
 
-🌍 Optional: Install Globally  
+### 🌍 Optional: Install Globally  
 Want to use this command from any folder without navigating here? Run this once:
 ```bash
 ./hyperclean-leo install
