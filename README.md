@@ -11,8 +11,6 @@ Is your Mac freezing? Is VS Code taking up 10GB of RAM? HyperClean is a bash scr
 - **Deep Clean:** Cleans System Caches, Logs, and Xcode DerivedData.
 - **Sandboxed Apps:** Cleans containers for App Store apps.
 
-> **🔒 Private Access Only For Now:** You must be added as a collaborator to this repository to use this tool.
-
 ## 🚀 How to Use
 
 ### 1. Clone the Repository
